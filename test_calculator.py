@@ -9,5 +9,8 @@ class CalculatorTest(unittest.TestCase):
     def test_one_number(self):
         self.assertEqual(add("5"), 5)
 
+    def test_two_numbers(self):
+        self.assertEqual(add("5,9"), 14)
+
 if __name__ == '__main__':
     unittest.main()
