@@ -15,5 +15,8 @@ class CalculatorTest(unittest.TestCase):
     def test_newline_instead_of_comma(self):
         self.assertEqual(add("1\n2,3"), 6)
 
+    def test_custom_delimiter(self):
+        self.assertEqual(add("//;\n1;2"), 3)
+
 if __name__ == '__main__':
     unittest.main()
