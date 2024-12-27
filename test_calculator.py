@@ -23,5 +23,19 @@ class CalculatorTest(unittest.TestCase):
             add("-9,6")
         self.assertEqual(str(context.exception), f"negative numbers not allowed: -9")
 
+    def test_negative_number_1(self):
+        with self.assertRaises(ValueError) as context:
+            add("-9,6\n-8")
+        self.assertEqual(str(context.exception), f"negative numbers not allowed: -9, -8")
+
+    def test_negative_number_2(self):
+        with self.assertRaises(ValueError) as context:
+            add("///\n-9/6\n-8")
+        self.assertEqual(str(context.exception), f"negative numbers not allowed: -9, -8")
+
+    def test_custom_delimiter_multidigit(self):
+        self.assertEqual(add("//;\n1;2;15"), 18)
+    
+
 if __name__ == '__main__':
     unittest.main()
