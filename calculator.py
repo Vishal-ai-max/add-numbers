@@ -8,7 +8,7 @@ def add(numbers: str):
         delimiter = ','
     negative_numbers = []
     int_numbers = []
-    for num in numbers.replace("\n", ",").split(delimiter):
+    for num in numbers.replace("\n", delimiter).split(delimiter):
         int_numbers.append(int(num))
     for num in int_numbers:
         if num < 0:
